@@ -369,6 +369,8 @@ datos_filtrados <- data %>%
 datos_filtrados
 
 data1<-ggplot(datos_filtrados, aes(x = date, y = new_deaths_per_million, color = location)) +
-  geom_line(size = 0.25)+labs(title='Gráfico de nuevas muertes en millones', x= 'Años', y = 'nuevas muertes en millones')
+  geom_line(size = 0.1)+labs(title='Gráfico de nuevas muertes en millones', x= 'Años', y = 'nuevas muertes en millones')+geom_line(data = filter(datos_filtrados, location == "Spain"), size = 0.2, col = "black")
 data1
+
+
 ```
