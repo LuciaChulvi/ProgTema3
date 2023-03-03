@@ -358,3 +358,17 @@ data(Salaries, package="carData")
         ggplotly(q)
         
 ```
+
+```{r}
+data <- read_csv("owid-covid-data.csv")
+
+# Seleccionar países
+paises <- c("Spain", "United States", "Italy", "Japan", "France", "Germany", "United Kingdom", "Japan", "Canada")
+datos_filtrados <- data %>%
+  filter(location %in% paises)
+datos_filtrados
+
+data1<-ggplot(datos_filtrados, aes(x = date, y = new_deaths_per_million, color = location)) +
+  geom_line(size = 0.25)+labs(title='Gráfico de nuevas muertes en millones', x= 'Años', y = 'nuevas muertes en millones')
+data1
+```
