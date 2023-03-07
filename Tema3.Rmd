@@ -366,7 +366,7 @@ data <- read_csv("owid-covid-data.csv")
 # Seleccionar países
 paises <- c("Spain","United States", "Japan", "France", "Germany", "United Kingdom", "Canada")
 datos_filtrados <- data %>%
-  filter(location %in% paises)
+  filter(location %in% paises)%>%filter(new_deaths_per_million != 0.0)
 datos_filtrados
 
 data1<-ggplot(datos_filtrados,aes(x=date, y = new_deaths_per_million, color = location, group = interaction(location, lubridate::wday(date, label = TRUE)))) +
