@@ -371,7 +371,10 @@ datos_filtrados <- data %>%
 datos_filtrados
 
 data1<-ggplot(datos_filtrados,aes(x=date, y = new_deaths_smoothed_per_million, color = location, group = interaction(location, lubridate::wday(date, label = TRUE)))) +
-  geom_line(size = 0.1)+labs(title='Gráfico de nuevas muertes por millón', x= 'Años', y = 'nuevas muertes en millones')+geom_line(data = filter(datos_filtrados, location == "Spain"), size = 0.2, col = "black") + theme_classic()
+  geom_line(size = 0.1)+labs(title='Gráfico de nuevas muertes por millón', x= 'Años', y = 'nuevas muertes en millones')+geom_line(data = filter(datos_filtrados, location == "Spain"), size = 0.2, col = "black") + theme_classic()+theme(panel.grid.major.y = element_line(color = "blue",size = 0.5,linetype = 2)) 
+ 
+ 
+
 data1
 
 ggplotly(data1)
