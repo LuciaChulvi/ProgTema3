@@ -362,7 +362,7 @@ data(Salaries, package="carData")
 ```{r}
 library(readr)
 data <- read_csv("owid-covid-data.csv")
-
+data <- data[!is.na(data$new_deaths_smoothed_per_million), ]
 
 # Seleccionar países
 paises <- c("Spain","United States", "Japan", "France", "Germany", "United Kingdom", "Canada")
