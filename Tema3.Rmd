@@ -374,7 +374,8 @@ data1<-ggplot(datos_filtrados,aes(x=date, y = new_deaths_smoothed_per_million, c
   geom_line(size = 0.1)+labs(title='Gráfico de nuevas muertes por millón', x= 'Años', y = 'En millones')+
   geom_line(data = filter(datos_filtrados, location == "Spain"), size = 0.2, col = "black") + 
   theme_classic()+
-  theme(panel.grid.major.y = element_line(color = "grey",size = 0.5,linetype = 2))
+  geom_hline(yintercept = seq(min(datos_filtrados$new_deaths_smoothed_per_million), max(datos_filtrados$new_deaths_smoothed_per_million), by = 2), 
+             linetype = "dashed", color = "gray")
  
  
 
